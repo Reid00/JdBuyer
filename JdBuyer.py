@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import time
 
+from datetime import datetime
 from config import global_config
 from log import logger
 from exception import JDException
@@ -96,9 +97,18 @@ class Buyer(object):
 if __name__ == '__main__':
 
     # 商品sku
-    skuId = '100015253059'
+    # 抗原
+    # jdurl = https://item.jd.com/100035063244.html
+    items = {
+        "抗原": "10067296842268",   # 150 RMB/25人  10：00 抢购
+        "ky": "100035048606", # 86 RMB/10人         20:30 抢购
+        "ky2": "100040452006", # 150 RMB/25人   20：00 抢购
+        "ky3": "100035063244", # 66 RMB/10 人
+    }
+    skuId = '100040452006'
     # 区域id(可根据工程 area_id 目录查找)
-    areaId = '1_2901_55554_0'
+    # 吴中
+    areaId = '12_988_40034_51587'
     # 购买数量
     skuNum = 1
     # 库存查询间隔(秒)
@@ -108,7 +118,12 @@ if __name__ == '__main__':
     # 下单尝试间隔(秒)
     submitInterval = 5
     # 程序开始执行时间(晚于当前时间立即执行，适用于定时抢购类)
-    buyTime = '2022-10-10 00:00:00'
+    buyTime = '2022-12-22 19:58:00'
+    
+    # now = datetime.now()
+    # buy_time = datetime.strptime(buyTime, "%Y-%m-%d %H:%M:%S")
+    # if now > buy_time:
+
 
     buyer = Buyer()  # 初始化
     buyer.loginByQrCode()
