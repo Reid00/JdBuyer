@@ -98,27 +98,28 @@ if __name__ == '__main__':
 
     # 商品sku
     # 抗原
-    # jdurl = https://item.jd.com/100035063244.html
+    # jdurl = https://item.jd.com/100040452006.html
     items = {
         "抗原": "10067296842268",   # 150 RMB/25人  10：00 抢购
         "ky": "100035048606", # 86 RMB/10人         20:30 抢购
         "ky2": "100040452006", # 150 RMB/25人   20：00 抢购
         "ky3": "100035063244", # 66 RMB/10 人
+        "ky3": "100040980566", # 98 RMB/20 人
     }
-    skuId = '100040452006'
+    skuId = '100001600621'
     # 区域id(可根据工程 area_id 目录查找)
     # 吴中
     areaId = '12_988_40034_51587'
     # 购买数量
     skuNum = 1
     # 库存查询间隔(秒)
-    stockInterval = 3
+    stockInterval = 1
     # 监听库存后尝试下单次数
     submitRetry = 3
     # 下单尝试间隔(秒)
-    submitInterval = 5
+    submitInterval = 1
     # 程序开始执行时间(晚于当前时间立即执行，适用于定时抢购类)
-    buyTime = '2022-12-22 19:58:00'
+    buyTime = '2022-12-24 09:58:00'
     
     # now = datetime.now()
     # buy_time = datetime.strptime(buyTime, "%Y-%m-%d %H:%M:%S")

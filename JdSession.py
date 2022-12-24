@@ -159,7 +159,8 @@ class Session(object):
             'area': areaId,
             'num': skuNum
         }
-        resp = requests.get(url=url, params=payload, headers=self.headers)
+        resp = self.sess.get(url=url, params=payload, headers=self.headers)
+        # resp = requests.get(url=url, params=payload, headers=self.headers)
         return resp
 
     def fetchItemDetail(self, skuId):
