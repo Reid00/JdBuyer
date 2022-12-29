@@ -74,7 +74,7 @@ class Buyer(object):
         :buyTime 定时执行
         """
         self.session.fetchItemDetail(skuId)
-        timer = Timer(buyTime)
+        timer = Timer(buyTime, sleepInterval=1)
         timer.start()
 
         while True:
@@ -106,9 +106,9 @@ if __name__ == '__main__':
         "ky3": "100035063244", # 66 RMB/10 人
         "ky3": "100040980566", # 98 RMB/20 人
     }
-    skuId = '100001600621'
+    skuId = '100040980566'  # 
+    # skuId = '100012700398'
     # 区域id(可根据工程 area_id 目录查找)
-    # 吴中
     areaId = '12_988_40034_51587'
     # 购买数量
     skuNum = 1
@@ -119,7 +119,7 @@ if __name__ == '__main__':
     # 下单尝试间隔(秒)
     submitInterval = 1
     # 程序开始执行时间(晚于当前时间立即执行，适用于定时抢购类)
-    buyTime = '2022-12-24 09:58:00'
+    buyTime = '2022-12-29 19:58:00'
     
     # now = datetime.now()
     # buy_time = datetime.strptime(buyTime, "%Y-%m-%d %H:%M:%S")

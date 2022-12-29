@@ -167,15 +167,18 @@ class Session(object):
         """ 解析商品信息
         :param skuId
         """
-        resp = self.getItemDetail(skuId).json()
-        shopId = resp['shopInfo']['shop']['shopId']
-        detail = dict(venderId=shopId)
-        if 'YuShouInfo' in resp:
-            detail['yushouUrl'] = resp['YuShouInfo']['url']
-        if 'miaoshaInfo' in resp:
-            detail['startTime'] = resp['miaoshaInfo']['startTime']
-            detail['endTime'] = resp['miaoshaInfo']['endTime']
-        self.itemDetails[skuId] = detail
+        try:
+            resp = self.getItemDetail(skuId).json()
+            shopId = resp['shopInfo']['shop']['shopId']
+            detail = dict(venderId=shopId)
+            if 'YuShouInfo' in resp:
+                detail['yushouUrl'] = resp['YuShouInfo']['url']
+            if 'miaoshaInfo' in resp:
+                detail['startTime'] = resp['miaoshaInfo']['startTime']
+                detail['endTime'] = resp['miaoshaInfo']['endTime']
+            self.itemDetails[skuId] = detail
+        except Exception as e:
+            print(f"Exception occurs while get Item Detail, e:{e}")
 
     ############## 库存方法 #############
     def getItemStock(self, skuId, skuNum, areaId):
